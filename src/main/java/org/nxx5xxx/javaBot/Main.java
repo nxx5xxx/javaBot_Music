@@ -9,7 +9,5 @@ public class Main {
         TokenManager tokenManager = new TokenManager();
         String token = tokenManager.getDiscordBotToken();
         JDABuilder.createDefault(token).build();
-
-        
     }
 }
