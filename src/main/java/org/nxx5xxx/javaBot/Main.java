@@ -42,7 +42,10 @@ public class Main {
          GUILD_MESSAGE_POLLS            서버에서 생성된 투표(poll) 메시지에 대한 이벤트를 수신합니다. *(2023 이후 신규 기능)*
          DIRECT_MESSAGE_POLLS           개인 DM에서 투표 메시지가 생성/변경될 때 이벤트를 수신합니다.
          */
-        JDABuilder.createDefault(token).enableIntents(intents).setActivity(Activity.customStatus("만드는중...")).addEventListeners(new Chat()).build();
+        JDABuilder.createDefault(token)
+                .enableIntents(intents)
+                .setActivity(Activity.customStatus("만드는중..."))
+                .addEventListeners(new Chat(),new Slash()).build();
         //JDABuilder.createDefault(token).enableIntents(intents).setActivity(Activity.customStatus("만드는중...")).build();
         /*
         JDABuilder.createDefault(token).setActivity(Activity.competing("")),build;
