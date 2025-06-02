@@ -22,6 +22,17 @@ public class Chat extends ListenerAdapter {
         getContentDisplay()   @홍길동 굵은 텍스트 #일반채널
         getContentStripped()  홍길동 굵은 텍스트 일반채널
          */
+        System.out.println(msg);
+        /*
+        User user = event.getAuthor();
+        System.out.println("ID: " + user.getId());
+        System.out.println("Username: " + user.getName());
+        System.out.println("Avatar ID: " + user.getAvatarId()); // null 가능성 있음
+        System.out.println("Avatar URL: " + user.getAvatarUrl()); // null 가능성 있음
+        System.out.println("Effective Avatar URL: " + user.getEffectiveAvatarUrl()); // 항상 값 있음!
+         */
+        System.out.println(event.getAuthor().getAvatarId());
+
         if(msg.equals("test")){
            event.getChannel().sendMessage("테스트가성공적으로 이루어졌습니다").queue();
         }
