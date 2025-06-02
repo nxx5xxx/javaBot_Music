@@ -35,6 +35,8 @@ public class Chat extends ListenerAdapter {
 
         if(msg.equals("test")){
            event.getChannel().sendMessage("테스트가성공적으로 이루어졌습니다").queue();
+        }else if(msg.equals("test2")){
+            event.getMessage().reply("답글테스트").queue();
         }
     }
 }
