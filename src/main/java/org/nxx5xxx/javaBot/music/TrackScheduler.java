@@ -2,6 +2,7 @@ package org.nxx5xxx.javaBot.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
+import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 
@@ -42,9 +43,28 @@ public class TrackScheduler extends AudioEventAdapter {
     public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
         System.out.println("트랙 종료: " + track.getInfo().title + ", 이유: " + endReason);
 
+        // LOAD_FAILED 원인 분석
+        if (endReason == AudioTrackEndReason.LOAD_FAILED) {
+            System.err.println("❌ 로드 실패 상세 정보:");
+            System.err.println("- 트랙 URL: " + track.getInfo().uri);
+            System.err.println("- 트랙 길이: " + track.getDuration());
+            System.err.println("- 재생 위치: " + track.getPosition());
+        }
+
         if (endReason.mayStartNext) {
             nextTrack();
         }
+    }
+
+    @Override
+    public void onTrackException(AudioPlayer player, AudioTrack track, FriendlyException exception) {
+        System.err.println("트랙 예외 발생: " + exception.getMessage());
+        exception.printStackTrace();
+    }
+
+    @Override
+    public void onTrackStuck(AudioPlayer player, AudioTrack track, long thresholdMs) {
+        System.err.println("트랙이 멈춤: " + track.getInfo().title + " (임계값: " + thresholdMs + "ms)");
     }
 
     public void nextTrack() {
