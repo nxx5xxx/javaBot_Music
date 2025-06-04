@@ -86,6 +86,24 @@ public class Chat extends ListenerAdapter {
 //        String link = "ytsearch1:" + part;
         System.out.println(part+"3");
         PlayerManager.getINSTANCE().loadAndPlay(event.getChannel().asTextChannel(), link, event.getMember());
+        //재생상태확인
+        new Thread(() -> {
+            try {
+                Thread.sleep(2000); // 2초 후 상태 확인
+                var musicManager = PlayerManager.getINSTANCE().getMusicManager(event.getGuild());
+                var currentTrack = musicManager.audioPlayer.getPlayingTrack();
+
+                if (currentTrack != null) {
+                    System.out.println("현재 재생 중: " + currentTrack.getInfo().title);
+                    System.out.println("재생 위치: " + currentTrack.getPosition() + "ms");
+                    System.out.println("일시정지 여부: " + musicManager.audioPlayer.isPaused());
+                } else {
+                    System.out.println("재생 중인 트랙 없음!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
 
