@@ -1,4 +1,4 @@
-package org.nxx5xxx.javaBot.music;
+package org.nxx5xxx.javaBot.trash;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;

@@ -1,10 +1,9 @@
-package org.nxx5xxx.javaBot;
+package org.nxx5xxx.javaBot.trash;
 
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.AudioManager;
-import org.nxx5xxx.javaBot.music.PlayerManager;
 
 public class Chat extends ListenerAdapter {
     @Override

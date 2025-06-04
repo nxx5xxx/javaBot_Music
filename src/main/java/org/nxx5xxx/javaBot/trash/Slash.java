@@ -1,4 +1,4 @@
-package org.nxx5xxx.javaBot;
+package org.nxx5xxx.javaBot.trash;
 
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
