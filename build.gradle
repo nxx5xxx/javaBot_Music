@@ -23,9 +23,9 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation("net.dv8tion:JDA:5.5.1")
     //lavaplayer
-    implementation("dev.arbjerg:lavaplayer:2.2.2")
+    implementation("dev.arbjerg:lavaplayer:2.2.3")
     //youtube-source
-    implementation("dev.lavalink.youtube:common:1.11.2")
+    implementation("dev.lavalink.youtube:common:1.13.2")
 }
 
 test {
